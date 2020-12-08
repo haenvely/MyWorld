@@ -22,17 +22,16 @@ from numpy import zeros
 
 import matplotlib.pyplot as plt
 
-f = open('./tester.txt', 'w', encoding='utf-8')
-
 #Importing and Analyzing the Dataset
 cols = ['sentiment','id','date','query_string','user','text']
-tweets = pd.read_csv("./data/sentiment140_training.1600000.processed.noemoticon.csv", encoding = 'latin-1', header = None, names = cols)
+#tweets = pd.read_csv("sentiment140_training.1600000.processed.noemoticon.csv", encoding = 'latin-1', header = None, names = cols)
+tweets = pd.read_csv('C:/Users/북미가자/Desktop/preprocess_HIO/전처리last_sentiment140.csv', encoding = 'utf-8', header = None, names = cols)
 tweets.isnull().values.any()
-f.write(str(tweets.shape) + '\n')
-f.write(str(tweets.head()) + '\n')
-f.write(str(tweets['text'][3]) + '\n')
+print(str(tweets.shape))
+print(str(tweets.head()))
+print(str(tweets['text'][3]))
 #sns.countplot(x = 'sentiment', data = tweets)
-#f.write(tweets.groupby('sentiment').size() + '\n')
+print(tweets.groupby('sentiment').size())
 
 #Data Preprocessing
 def preprocess_text(sen):
@@ -57,8 +56,10 @@ def remove_tags(text):
 
 X=[]
 sentences = list(tweets['text'])
+print(sentences[0:2])
 for sen in sentences:
-    X.append(preprocess_text(sen))
+    X.append(preprocess_text(str(sen)))
+    #typeError => X.append(preprocess_text(sen))
 y = tweets['sentiment']
 
 #sentiment를 긍정은 1, 부정은 0으로 수정
@@ -76,14 +77,14 @@ X_test = tokenizer.texts_to_sequences(X_test)
 # Adding 1 because of reserved 0 index
 vocab_size = len(tokenizer.word_index) + 1
 
-maxlen = 100
+maxlen = 62
 
 X_train = pad_sequences(X_train, padding='post', maxlen=maxlen)
 X_test = pad_sequences(X_test, padding='post', maxlen=maxlen)
 
 #create our feature matrix
 embeddings_dictionary = dict()
-glove_file = open('./glove.6B.100d.txt', encoding="utf8")
+glove_file = open('./glove.twitter.27B.100d.txt', encoding="utf8")
 
 for line in glove_file:
     records = line.split()
@@ -125,7 +126,7 @@ def train(mode):
         embedding_layer = Embedding(vocab_size, 100, weights=[embedding_matrix], input_length=maxlen, trainable=False)
         model.add(embedding_layer)
         model.add(LSTM(128))
-
+        model.add(Dropout(0.5))
         model.add(Dense(1, activation='sigmoid'))
     else:
         print('no matched deep learning algorithm')
@@ -138,20 +139,31 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['acc'])
 print(model.summary())
 
 #train our model
-history = model.fit(X_train, y_train, batch_size=128, epochs=6, verbose=1, validation_split=0.2)
-model.save("tester.h5")
+history = model.fit(X_train, y_train, batch_size=2048, epochs=30, verbose=2, validation_split=0.2)
+
+model.save("LASTprep_DB2048_twitter100D_62_30_lstm_model.h5")
 #evaluate the performance of the mode
-score = model.evaluate(X_test, y_test, verbose=1)
+score = model.evaluate(X_test, y_test, verbose=2)
 
-f.write("Test Score:", score[0] + '\n')
-f.write("Test Accuracy:", score[1] + '\n')
+print("Test Score:", score[0])
+print("Test Accuracy:", score[1])
 
+print(history.history['loss'])
+print(history.history['acc'])
+print(history.history['val_loss'])
+print(history.history['val_acc'])
+
+##Plot##
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
+
 plt.title('model accuracy')
 plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train','test'], loc='upper left')
+
+plt.grid()
+plt.savefig("LASTprep_DB2048_twitter100D_62_30_lstm_acc.pdf", bbox_inches = 'tight')
 plt.show()
 
 plt.plot(history.history['loss'])
@@ -161,11 +173,14 @@ plt.title('model loss')
 plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['train','test'], loc='upper left')
+plt.grid()
+plt.savefig("LASTprep_DB2048_twitter100D_62_30_lstm_loss.pdf", bbox_inches = 'tight')
 plt.show()
+
 
 #Making Predictions on Single Instance
 instance = X[57]
-f.write((instance) + '\n')
+print(instance)
 
 instance = tokenizer.texts_to_sequences(instance)
 
@@ -180,4 +195,4 @@ instance = pad_sequences(flat_list, padding='post', maxlen=maxlen)
 
 results = model.predict(instance)
 
-f.write("predicted: " + str(results)+ '\n')
+print("predicted: " + str(results))
