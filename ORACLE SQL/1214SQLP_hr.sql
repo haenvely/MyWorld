@@ -2,25 +2,25 @@ select * from tab;
 select * from employees;
 
 conn hr
---# DB ìƒì˜ dataê°€ ëŒ€ì†Œë¬¸ìë¥¼ êµ¬ë³„í•˜ë¯€ë¡œ ì €ì¥ëœ ì •í™•í•œ í˜•íƒœë¥¼ ì•Œì§€ ëª»í•˜ëŠ” ê²½ìš° Functionì„ ì´ìš©í•˜ì—¬ dataë¥¼ ë³€í˜•ì‹œí‚¨ í›„ ë¹„êµí•˜ê¸°ë„ í•œë‹¤.
+--# DB »óÀÇ data°¡ ´ë¼Ò¹®ÀÚ¸¦ ±¸º°ÇÏ¹Ç·Î ÀúÀåµÈ Á¤È®ÇÑ ÇüÅÂ¸¦ ¾ËÁö ¸øÇÏ´Â °æ¿ì FunctionÀ» ÀÌ¿ëÇÏ¿© data¸¦ º¯Çü½ÃÅ² ÈÄ ºñ±³ÇÏ±âµµ ÇÑ´Ù.
 select department_id, department_name from departments where department_name = 'SALES';
-SELECT department_id, department_name FROM departments?where UPPER(department_name) = 'SALES'; --ì—ëŸ¬ë°œìƒ
+SELECT department_id, department_name FROM departments?where UPPER(department_name) = 'SALES'; --¿¡·¯¹ß»ı
 
 --#CHAR, ASCII
 SELECT CHR(79)||CHR(114)||CHR(97)||CHR(99)||CHR(108)||CHR(101) FROM dual; -- Oracle
 SELECT ASCII('O'),ASCII('r'),ASCII('a') FROM dual;-- 79, 114, 97
---# ë¬¸ìì—´ ì¹˜í™˜
-SELECT REPLACE('Oracle DB System','DB','Database') FROM dual; --dbê°€ databaseë¡œ
---# ë¬¸ìì—´ ì¼ë¶€ ì¶”ì¶œ
+--# ¹®ÀÚ¿­ Ä¡È¯
+SELECT REPLACE('Oracle DB System','DB','Database') FROM dual; --db°¡ database·Î
+--# ¹®ÀÚ¿­ ÀÏºÎ ÃßÃâ
 select substr('Oracle DB System', 2, 4) from dual; --racl
---# ê° ê¸€ì ë‹¨ìœ„ë¡œ ë³€í™˜ A->1, B->2, ...
+--# °¢ ±ÛÀÚ ´ÜÀ§·Î º¯È¯ A->1, B->2, ...
 select translate('Oracle DBMS', 'ABCD', '1234') from dual; --Oracle 42MS
---# ì²˜ìŒ ë‚˜ì˜¤ëŠ” ìœ„ì¹˜?
+--# Ã³À½ ³ª¿À´Â À§Ä¡?
 select instr('Oracle DBMS', 'a') from dual; --3
---#ê¸¸ì´
+--#±æÀÌ
 select length('Oracle DBMS') from dual; --11
 
---#substr ë¬¸ìì—´ ì¼ë¶€ ì¶”ì¶œ
+--#substr ¹®ÀÚ¿­ ÀÏºÎ ÃßÃâ
 SELECT department_name, SUBSTR(department_name, 1,3) FROM departments;
 SELECT department_name, SUBSTR(department_name, 1) FROM departments;
 SELECT department_name, SUBSTR(department_name, -5, 3) FROM departments;
