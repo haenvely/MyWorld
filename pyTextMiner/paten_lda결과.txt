@@ -1,0 +1,56 @@
+D:\program\Anaconda3\python.exe D:/TSMM/KistepProject/patent_lda.py
+(0, '0.000*"TPC" + 0.000*"NN" + 0.000*"holder" + 0.000*"PHY" + 0.000*"power_component" + 0.000*"reader" + 0.000*"strip" + 0.000*"charge_capacity" + 0.000*"ignition" + 0.000*"support_frame"')
+(1, '0.003*"Device_claim" + 0.002*"claim_device" + 0.002*"Device" + 0.001*"circuit_board" + 0.001*"Apparatus" + 0.001*"circuit" + 0.001*"board" + 0.001*"module" + 0.001*"LED" + 0.001*"device"')
+(2, '0.003*"system" + 0.002*"unit" + 0.002*"energy" + 0.002*"power" + 0.002*"device" + 0.002*"motor" + 0.002*"module" + 0.002*"control" + 0.002*"card" + 0.002*"circuit"')
+(3, '0.001*"piston" + 0.001*"container" + 0.000*"pot" + 0.000*"pressure" + 0.000*"LEDs" + 0.000*"cylinder" + 0.000*"power_supply" + 0.000*"cable" + 0.000*"valve" + 0.000*"fluid"')
+(4, '0.001*"ISDN" + 0.000*"supply_unit" + 0.000*"power_supply" + 0.000*"fire" + 0.000*"object" + 0.000*"cassette" + 0.000*"combustion" + 0.000*"L_L" + 0.000*"water" + 0.000*"Electric"')
+(5, '0.000*"phone" + 0.000*"message" + 0.000*"hinge" + 0.000*"network_device" + 0.000*"energy_storage" + 0.000*"power_supply" + 0.000*"projectile" + 0.000*"pilot" + 0.000*"brightness" + 0.000*"memory_card"')
+(6, '0.001*"nan" + 0.001*"door" + 0.000*"power_supply" + 0.000*"laser" + 0.000*"control_element" + 0.000*"control_system" + 0.000*"device_claim" + 0.000*"monitoring_device" + 0.000*"actuator" + 0.000*"twowire"')
+(7, '0.000*"layer" + 0.000*"display_device" + 0.000*"traffic" + 0.000*"superstrate" + 0.000*"antireflection" + 0.000*"antireflection_layer" + 0.000*"Doorstep" + 0.000*"emergency_light" + 0.000*"transportation" + 0.000*"curtain"')
+
+Number of Topic: 8 	Coherence Score: 0.5920914028524092
+D:\program\Anaconda3\lib\site-packages\past\translation\__init__.py:35: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+D:\program\Anaconda3\lib\site-packages\past\translation\__init__.py:35: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+D:\program\Anaconda3\lib\site-packages\past\translation\__init__.py:35: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+D:\program\Anaconda3\lib\site-packages\past\translation\__init__.py:35: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+D:\program\Anaconda3\lib\site-packages\past\types\oldstr.py:5: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  from collections import Iterable
+D:\program\Anaconda3\lib\site-packages\past\types\oldstr.py:5: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  from collections import Iterable
+D:\program\Anaconda3\lib\site-packages\past\types\oldstr.py:5: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  from collections import Iterable
+D:\program\Anaconda3\lib\site-packages\past\types\oldstr.py:5: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  from collections import Iterable
+D:\program\Anaconda3\lib\site-packages\pyLDAvis\_prepare.py:257: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
+of pandas will change to not sort by default.
+
+To accept the future behavior, pass 'sort=False'.
+
+To retain the current behavior and silence the warning, pass 'sort=True'.
+
+  return pd.concat([default_term_info] + list(topic_dfs))
+(0, '0.001*"스마트_통신" + 0.001*"제어_반" + 0.001*"승강장" + 0.001*"기지국" + 0.001*"동문" + 0.001*"개별_제어" + 0.001*"스마트_창" + 0.001*"지열" + 0.001*"통신_장치" + 0.001*"기지국_스마트"')
+(1, '0.003*"창_짝" + 0.002*"카트" + 0.001*"슬라이딩" + 0.001*"스마트_게이트웨이" + 0.001*"로드_제어" + 0.001*"부재" + 0.001*"적재" + 0.001*"스마트_센서" + 0.001*"로드" + 0.001*"개폐_장치"')
+(2, '0.001*"콘센트_장치" + 0.001*"유량" + 0.001*"텀블러" + 0.001*"데이터_수신" + 0.001*"금고" + 0.001*"플레이트" + 0.001*"전기_접속" + 0.001*"택배" + 0.001*"스마트_전기" + 0.001*"락_시스템"')
+(3, '0.003*"시광" + 0.001*"조명등" + 0.001*"스마트_디바" + 0.001*"공동" + 0.001*"디바_이스" + 0.001*"재배" + 0.001*"주택" + 0.001*"세대" + 0.001*"캡슐" + 0.001*"다중화"')
+(4, '0.002*"윈도" + 0.002*"프레임" + 0.002*"전극" + 0.002*"윈도_우" + 0.002*"도시" + 0.001*"청소기" + 0.001*"형성" + 0.001*"가전제품" + 0.001*"고정" + 0.001*"기판"')
+(5, '0.001*"창_호" + 0.001*"제어_장치" + 0.001*"연료전지" + 0.001*"복합" + 0.001*"타스" + 0.001*"전력" + 0.001*"상기_부하" + 0.001*"트랜지스터" + 0.001*"스마트_컵" + 0.001*"배양"')
+(6, '0.006*"전력" + 0.005*"조명" + 0.005*"에너지" + 0.004*"스마트" + 0.004*"모듈" + 0.004*"도어" + 0.004*"장치" + 0.004*"정보" + 0.003*"지능" + 0.003*"단계"')
+(7, '0.002*"차량" + 0.002*"물질" + 0.002*"드라이빙" + 0.001*"전열" + 0.001*"저장_장치" + 0.001*"물류" + 0.001*"비밀_번호" + 0.001*"드라이빙_모드" + 0.001*"전동기" + 0.001*"냉매"')
+(8, '0.001*"주행" + 0.001*"전력_망" + 0.001*"배_송" + 0.001*"디바_이스" + 0.001*"에어_펌프" + 0.001*"배달" + 0.001*"충전_장치" + 0.001*"축전" + 0.001*"축전_지" + 0.001*"제어_온도"')
+
+Number of Topic: 9 	Coherence Score: 0.592067103498358
+D:\program\Anaconda3\lib\site-packages\pyLDAvis\_prepare.py:257: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
+of pandas will change to not sort by default.
+
+To accept the future behavior, pass 'sort=False'.
+
+To retain the current behavior and silence the warning, pass 'sort=True'.
+
+  return pd.concat([default_term_info] + list(topic_dfs))
+
+Process finished with exit code 0
